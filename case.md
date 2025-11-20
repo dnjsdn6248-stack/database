@@ -40,7 +40,19 @@ END
 📌 특정 컬럼의 값이 정해진 범주일 때 사용
 예: 점수 → 등급 매핑, 상태코드 → 한글 변환 등.
 
+SELECT
+    name,
+    status,
+    CASE status
+        WHEN 'active' THEN '재학중'
+        WHEN 'leave'  THEN '휴학'
+        WHEN 'dropout' THEN '제적'
+        ELSE '미정'
+    END AS status_kor
+FROM StudentScore
+GROUP BY name;
 ---
+
 
 ## 🔹 2-2. 검색형(SEARCHED CASE)
 
