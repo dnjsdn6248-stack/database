@@ -174,7 +174,7 @@ GROUP BY subject
             WHEN SCORE >= 60 THEN 'D'
             ELSE 'F'
          END)
-
+```
 ---
 
 # 7️⃣ ORDER BY에서 CASE 활용
