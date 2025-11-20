@@ -163,6 +163,18 @@ FROM Score
 GROUP BY subject, grade;
 ```
 
+GROUP BY가 실행될 때, grade의 존재를 알 수 없음.
+왜냐하면 CASE WHEN 절에서 생성되기 때문에 GROUP BY 절은 다음과 같이 수행됨
+```sql
+GROUP BY subject
+         (CASE
+            WHEN SCORE >= 90 THEN 'A'
+            WHEN SCORE >= 80 THEN 'B'
+            WHEN SCORE >= 70 THEN 'C'
+            WHEN SCORE >= 60 THEN 'D'
+            ELSE 'F'
+         END)
+
 ---
 
 # 7️⃣ ORDER BY에서 CASE 활용
